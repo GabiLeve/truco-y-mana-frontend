@@ -1,0 +1,204 @@
+* { box-sizing: border-box; }
+
+:host {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.titulo {
+  text-align: center;
+  font-family: 'Jersey 10', monospace;
+  font-size: 2.4rem;
+  color: #e8aa40;
+  margin: 0 0 8px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 20px rgba(200, 144, 48, 0.4);
+}
+
+.sep {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #6a4a20, transparent);
+  margin: 0 0 28px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 18px;
+}
+
+label {
+  color: #c89030;
+  font-family: 'Jersey 10', monospace;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  margin-bottom: 7px;
+}
+
+input {
+  background: #241808;
+  border: 2px solid #5a4020;
+  color: #e8d090;
+  font-family: 'Jersey 10', monospace;
+  font-size: 1rem;
+  padding: 11px 14px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus {
+  border-color: #c89030;
+  box-shadow: 0 0 8px rgba(200, 144, 48, 0.25);
+}
+
+input::placeholder {
+  color: #8a6840;
+}
+
+.error {
+  color: #e05050;
+  font-family: 'Jersey 10', monospace;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+.error-servidor {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+/* ── Carteles (pop ups) ─────────────────────────────────────────── */
+.cartel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 7px;
+  padding: 8px 12px;
+  font-family: 'Jersey 10', monospace;
+  font-size: 1rem;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  animation: cartelIn 0.18s ease-out;
+}
+
+.cartel-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.3em;
+  height: 1.3em;
+  border-radius: 50%;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.cartel-error {
+  background: rgba(70, 18, 18, 0.55);
+  border: 2px solid #e05050;
+  color: #f0a0a0;
+  box-shadow: 0 0 10px rgba(224, 80, 80, 0.25);
+}
+
+.cartel-error .cartel-icono {
+  background: #e05050;
+  color: #241808;
+}
+
+@keyframes cartelIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.btn-submit {
+  width: 100%;
+  margin-top: 8px;
+  padding: 14px;
+  background: #2e1e08;
+  color: #e8aa40;
+  border: 2px solid #6a4a20;
+  font-family: 'Jersey 10', monospace;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.1s, color 0.1s, border-color 0.1s, box-shadow 0.1s;
+}
+
+.btn-submit:hover:not(:disabled) {
+  background: #3a2510;
+  color: #f5c050;
+  border-color: #a07028;
+  box-shadow: 0 0 14px rgba(200, 144, 48, 0.3);
+}
+
+.btn-submit:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.registro-link {
+  text-align: center;
+  color: #7a6040;
+  font-family: 'Jersey 10', monospace;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  margin-top: 22px;
+}
+
+.registro-link a {
+  color: #c89030;
+  text-decoration: none;
+}
+
+.registro-link a:hover {
+  color: #f0b050;
+  text-decoration: underline;
+}
+
+/* ── Responsive ─────────────────────────────────────────────────── */
+.titulo { font-size: clamp(1.6rem, 5vmin, 2.4rem); }
+
+@media (max-width: 480px), (max-height: 560px) {
+  .sep   { margin-bottom: 16px; }
+  .campo { margin-bottom: 12px; }
+  input  { padding: 9px 12px; font-size: 0.95rem; }
+  .btn-submit { padding: 11px; font-size: 1.05rem; }
+  .registro-link { margin-top: 14px; }
+}
+
+/* Celular apaisado: poco alto y mucho ancho → campos a dos columnas
+   para que el formulario entre completo sin scroll. */
+@media (max-height: 560px) and (orientation: landscape) {
+  .titulo { font-size: 1.2rem; margin-bottom: 2px; letter-spacing: 2px; }
+  .sep { display: none; }
+  label { font-size: 0.85rem; margin-bottom: 4px; }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 14px;
+    align-items: flex-start;
+  }
+
+  .campo {
+    flex: 1 1 220px;
+    min-width: 0;
+    margin-bottom: 8px;
+  }
+
+  .error-servidor,
+  .btn-submit { flex-basis: 100%; }
+
+  .btn-submit { margin-top: 2px; padding: 9px; font-size: 1rem; }
+
+  .registro-link {
+    display: inline-block;
+    margin: 8px 10px 0;
+    font-size: 0.85rem;
+  }
+}

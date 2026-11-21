@@ -1,4 +1,4 @@
-# 🎨 Truco y Maña — Frontend Showcase
+# 🃏 Truco y Maña — Frontend Showcase
 
 > Muestra seleccionada de código y recursos gráficos de mi autoría correspondientes al frontend de **Truco y Maña** (Angular).
 
@@ -6,12 +6,12 @@
 
 ---
 
-## ℹ️ Alcance de este repositorio
+## Alcance de este repositorio
 Este repositorio reúne **únicamente una selección de archivos y carpetas** en los que trabajé dentro de `src/` y `public/` con fines de portafolio y demostración de código. **No está pensado para ejecutarse como aplicación completa** ni contiene la totalidad del proyecto del equipo, respetando la privacidad del repositorio grupal y omitiendo configuraciones o entornos sensibles.
 
 ---
 
-## 🧠 Enfoque y Aportes en el Frontend
+## 👩‍💻 Enfoque y Aportes en el Frontend
 
 * **Protección de rutas y control de acceso:** Implementación de `authGuard` en **Angular** para resguardar las rutas privadas del sistema y validar el estado de sesión del jugador antes de permitir la navegación.
 * **Seguridad en comunicación HTTP:** Desarrollo de un **JWT Interceptor** encargado de interceptar las peticiones salientes hacia la API e inyectar automáticamente el token *Bearer* de autenticación.
@@ -20,7 +20,7 @@ Este repositorio reúne **únicamente una selección de archivos y carpetas** en
 
 ---
 
-## 🗂️ Qué vas a encontrar en este repo
+## Qué vas a encontrar en este repo
 
 * `src/` — Guards, interceptores HTTP, lógica de autenticación/cierre de sesión y componentes de interfaz (*header* responsive) desarrollados en Angular y TypeScript.
 * `public/` — Recursos estáticos y variantes del logotipo utilizadas en la adaptación visual de la cabecera.
